@@ -1,5 +1,4 @@
-import './styles.css';
-import { Observable, Subject } from './rxjs';
+import { Observable, Subject } from './rxjs-observables';
 import { map, mergeMap, multicast, refCount } from './rxjs-operators';
 
 document.getElementById('app').innerHTML = `
@@ -21,12 +20,12 @@ document.getElementById('app').innerHTML = `
 `;
 
 // Observable.of(1, 2, 3)
-//   .pipe(map(v => v * 2))
-//   .subscribe({
-//     next(v) {
-//       console.log('map', v);
-//     },
-//   });
+// 	.pipe(map(v => v * 2))
+// 	.subscribe({
+// 		next(v) {
+// 			console.log('map', v);
+// 		},
+// 	});
 
 // Observable.of(1, 2, 3)
 //   .pipe(mergeMap(v => Observable.of(v * 2)))
@@ -68,10 +67,13 @@ document.getElementById('app').innerHTML = `
 //   });
 // }, 2000);
 
-// const shared$ = Observable.interval(1000).pipe(multicast(new Subject()), refCount());
+// const shared$ = Observable.interval(1000).pipe(
+// 	multicast(new Subject()),
+// 	refCount(),
+// );
 // // should start emit value
 // shared$.subscribe({
-//   next(v) {
-//     console.log(v)
-//   }
-// })
+// 	next(v) {
+// 		console.log(v);
+// 	},
+// });
